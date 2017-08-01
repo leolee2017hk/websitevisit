@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Static</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+#loading-indicator {
+    position:absolute;
+    top:20%;
+    left:50%;
+    float:left;
+    z-index:999999;
+}
+</style>  
+<link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="css/bootstrap-table.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-table.min.js"></script>
+  <script src="js/jquery-ui.js"></script>	
+
+ <script>
+$(document).ready(function(){
+
+	 var date_input=$('input[name="date"]'); //our date input has the name "date"
+	 var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+	 var options={
+	dateFormat: 'yy-mm-dd',
+	   container: container,
+	   todayHighlight: true,
+	   autoclose: true,
+	      changeMonth: true,
+	      changeYear: true,
+	      onSelect: function(d,i){
+	          if(d !== i.lastVal){
+	              $(this).change();
+	          }
+	     }
+	 };
+	 date_input.datepicker(options);
+
+	
+	$('input[name="date"]').change(function(){
+		var recordDate = $(this);
+    	if( !recordDate.val() ) {
+    		alert("The record date field is empty ! ")
+    		recordDate.addClass('warning');
+    		return;
+    	}
+    	
+    	$('#loading-indicator').show();
+    	$.ajax({
+    	   url: 'queryTopNWebVisit/' + recordDate.val(),
+   	       dataType: 'json',
+   	       success: function(data) {
+   	    	$('#loading-indicator').hide();
+   	           $('#report').bootstrapTable('load', data);
+   	       },
+   	       error: function(e) {
+   	           console.log(e.responseText);
+   	       }
+   	    });
+	});
+	
+});
+</script>
+  
+</head>
+<body>
+	<div class="row">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4 text-center">
+			
+		  <h3>Top 5 Websites by Visit Count</h3> 
+		</div>
+		<div class="col-sm-4 text-left">
+			  <p><a href="logout" />Logout</a></p> 
+		</div>
+	</div>
+  
+<div class="container">
+	
+	<div class="row form-group col-md-2">
+		<label for="date">Record Date</label>
+  		<input class="form-control " id="date" name="date" placeholder="YYYY-MM-DD" type="text"/>	
+	</div>
+	<div class="row col-md-6">
+	<img src="images/loading.gif" id="loading-indicator" style="display:none" />
+	  <table id="report" class="table table-striped " data-toggle="table"
+	               data-toolbar="#toolbar">
+	  		<thead>
+	            <tr>
+	            	<th data-field="recordDate" class="col-md-1">Record Date</th>
+	                <th data-field="webSite" class="col-md-2">Web Site</th>
+	                <th data-field="visitCount" class="text-right col-md-1">Visit Count</th>
+	            </tr>
+	        </thead>
+	  </table>
+	</div>
+</div>
+</body>
+</html>

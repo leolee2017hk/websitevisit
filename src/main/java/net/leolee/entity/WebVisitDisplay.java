@@ -1,7 +1,5 @@
 package net.leolee.entity;
 
-import java.time.LocalDate;
-
 public class WebVisitDisplay {
 	
 	private String recordDate;

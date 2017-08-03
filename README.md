@@ -32,7 +32,7 @@ The following should be configurated specifically
 * jdbc.password=_<db_password>_
 
 * source.path=_<path_of_source_data_file>_
-* query.top.N=<number_of_top_records_returned>_
+* query.top.N=_<number_of_top_records_returned>_
 * exclusion.url=_<endpoint_of_exclusion_list_API>_
 * web.username=_<web_login_usename>_
 * web.password=_<web_login_password>_

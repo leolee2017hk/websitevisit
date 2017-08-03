@@ -14,3 +14,7 @@ exclusion.url=http://private-1de182-mamtrialrankingadjustments4.apiary-mock.com/
 
 web.username=webuser
 web.password=Abcd1234
+
+server.tomcat.accesslog.directory=logs # Directory in which log files are created. Can be relative to the tomcat base dir or absolute.
+server.tomcat.accesslog.enabled=false # Enable access log.
+server.tomcat.accesslog.pattern=common # Format pattern for access logs.

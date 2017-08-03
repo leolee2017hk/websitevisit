@@ -37,6 +37,7 @@ The following should be configurated specifically
 * web.username=<web_login_usename>
 * web.password=<web_login_password>
 
+**<path_of_source_data_file>** must exist in the local machine for unit tests to run
 
 ## Checkout Source Code
 

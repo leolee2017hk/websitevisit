@@ -37,8 +37,6 @@ The following should be configurated specifically
 * web.username=<web_login_usename>
 * web.password=<web_login_password>
 
-**<path_of_source_data_file>** must exist in the local machine for unit tests to run
-
 ## Checkout Source Code
 
 *git clone https://github.com/leolee2017hk/websitevisit.git*
@@ -85,7 +83,8 @@ To make it run on AWS, we need to replace the content of [application.properties
 
 ## To Do
 
-* The source code will be packaged as a WAR file and the WAF file will be deployed to Tomcat container
-* The user credentials will be stored in the database
+* The WAR file will be deployed to a standalone Tomcat container
+* The user credentials will be stored in the database instead of the java memory
 * The DB credentials will be encrypted in the application.properties and decrypted during runtime by a secret key
+* Some properties like __source.path__ or __exclusion.url__ can be stored on DB instead for easy maintenance.
 

@@ -9,4 +9,4 @@ CREATE TABLE web_visit
 CREATE INDEX idx_web_visit_vist_count ON web_visit (file_timestamp, record_date, visit_count desc, web_site);
 
 CREATE TABLE web_visit_source_version
-(current_file_timestamp VARCHAR(14)) 
+(current_file_timestamp VARCHAR(14)); 

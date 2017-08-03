@@ -10,6 +10,7 @@
 * MySQL 5.x
 * Maven 3.5
 * Git 2.13
+* Chrome browser 
 
 ## Set Up MySQL DB
 Create a MySQL DB <br>
@@ -21,6 +22,21 @@ Apply the following DDL
 https://github.com/leolee2017hk/websitevisit/blob/master/db/create_table.sql
 
 ## application.properties
+System and application configuration is set up on 
+https://github.com/leolee2017hk/websitevisit/blob/master/src/main/resources/application.properties
+
+The following should be configurated specifically
+
+* jdbc.url=<jdbc_connection_strong>
+* jdbc.username=<db_username>
+* jdbc.password=<db_password>
+
+* source.path=<path_of_source_data_file>
+* query.top.N=<number of top records returned>
+* exclusion.url=<endpoint of exclusion list API>
+* web.username=<web_login_usename>
+* web.password=<web_login_password>
+
 
 ## Checkout Source Code
 
@@ -32,13 +48,16 @@ https://github.com/leolee2017hk/websitevisit/blob/master/db/create_table.sql
 
 ## Run Integration Test
 
+* [__Selenium__](http://www.seleniumhq.org/) is used to for integration test to simulate the behaviour in the browser
+* Chrome driver has been download and checked in to https://github.com/leolee2017hk/websitevisit/blob/master/bin/chromedriver.exe
+
 *mvn clean test -Dtest=WebControllerIT*
 
-** Build and Packaging
+## Build and Packaging
 
 *mvn clean package*
 
-A new file top5website-0.0.1-SNAPSHOT.war is generated under target directory
+A new file top5website-0.0.1-SNAPSHOT.war is generated under **target** directory
 
 ## Deployment
 
@@ -55,6 +74,9 @@ http://ec2-52-221-231-45.ap-southeast-1.compute.amazonaws.com:8080/webvisit/
 *Login:*<br>
 username: webuser<br>
 password: Abcd1234<br>
+
+To make it run on AWS, we need to replace the content of [application.properties](https://github.com/leolee2017hk/websitevisit/blob/master/src/main/resources/application.properties) from [application.properties.aws](https://github.com/leolee2017hk/websitevisit/blob/master/src/main/resources/application.properties.aws)  under 
+[resources](https://github.com/leolee2017hk/websitevisit/tree/master/src/main/resources) before we build and package it as a __war__ file
 
 ## To Do
 

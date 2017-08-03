@@ -32,8 +32,8 @@ The following should be configurated specifically
 * jdbc.password=<db_password>
 
 * source.path=<path_of_source_data_file>
-* query.top.N=<number of top records returned>
-* exclusion.url=<endpoint of exclusion list API>
+* query.top.N=<number_of_top_records_returned>
+* exclusion.url=<endpoint_of_exclusion_list_API>
 * web.username=<web_login_usename>
 * web.password=<web_login_password>
 
@@ -41,6 +41,10 @@ The following should be configurated specifically
 ## Checkout Source Code
 
 *git clone https://github.com/leolee2017hk/websitevisit.git*
+
+After<br>
+*cd websitevisit*<br>
+Then you are in the root directory of the repo
 
 ## Run Unit Test
 

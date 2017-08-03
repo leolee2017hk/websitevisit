@@ -27,15 +27,15 @@ https://github.com/leolee2017hk/websitevisit/blob/master/src/main/resources/appl
 
 The following should be configurated specifically
 
-* jdbc.url=<jdbc_connection_strong>
-* jdbc.username=<db_username>
-* jdbc.password=<db_password>
+* jdbc.url=_<jdbc_connection_strong>_
+* jdbc.username=_<db_username>_
+* jdbc.password=_<db_password>_
 
-* source.path=<path_of_source_data_file>
-* query.top.N=<number_of_top_records_returned>
-* exclusion.url=<endpoint_of_exclusion_list_API>
-* web.username=<web_login_usename>
-* web.password=<web_login_password>
+* source.path=_<path_of_source_data_file>_
+* query.top.N=<number_of_top_records_returned>_
+* exclusion.url=_<endpoint_of_exclusion_list_API>_
+* web.username=_<web_login_usename>_
+* web.password=_<web_login_password>_
 
 ## Checkout Source Code
 
@@ -60,11 +60,11 @@ Then you are in the root directory of the repo
 
 *mvn clean package*
 
-A new file top5website-0.0.1-SNAPSHOT.war is generated under **target** directory
+A new file **top5website-0.0.1-SNAPSHOT.war** is generated under **target** directory
 
 ## Deployment
 
-Copy top5website-0.0.1-SNAPSHOT.war to the host
+Copy **top5website-0.0.1-SNAPSHOT.war** to the host which has access to a configured Mysql DB with the required tables created.
 
 ## Run
 

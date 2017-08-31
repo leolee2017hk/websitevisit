@@ -66,13 +66,15 @@ A new file **top5website-0.0.1-SNAPSHOT.war** is generated under **target** dire
 
 Copy **top5website-0.0.1-SNAPSHOT.war** to the host which has access to a configured Mysql DB with the required tables created.
 
+upload **data.csv** to **/home/ec2-user/data_source/** in the host
+
 ## Run
 
-*java -jar top5website-0.0.1-SNAPSHOT.war*
+*nohup java -jar top5website-0.0.1-SNAPSHOT.war &*
 
 ## Access the website vis AWS Hosting
 
-http://ec2-52-221-231-45.ap-southeast-1.compute.amazonaws.com:8080/webvisit/
+http://ec2-54-255-225-77.ap-southeast-1.compute.amazonaws.com:8080/webvisit/
 
 *Login:*<br>
 username: webuser<br>
